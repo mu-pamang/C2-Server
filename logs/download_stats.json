@@ -1,0 +1,15 @@
+{
+  "stealer.ps1": {
+    "download_count": 1,
+    "first_download": "2025-06-15T12:48:36.673682",
+    "last_download": "2025-06-15T12:48:36.673682",
+    "clients": [
+      {
+        "key": "211.234.196.235_PostmanRuntime/7.43.4",
+        "ip": "211.234.196.235",
+        "user_agent": "PostmanRuntime/7.43.4",
+        "timestamp": "2025-06-15T12:48:36.673682"
+      }
+    ]
+  }
+}
