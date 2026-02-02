@@ -1,0 +1,14 @@
+{
+  "passwords": [],
+  "emails": [],
+  "credit_cards": [],
+  "websites": [],
+  "commands": [],
+  "sensitive_patterns": [],
+  "statistics": {
+    "total_chars": 144,
+    "total_words": 9,
+    "special_keys": 7,
+    "potential_passwords": 0
+  }
+}
